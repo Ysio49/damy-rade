@@ -1,4 +1,7 @@
-var code4life = angular.module('code4life', ['ngMaterial', 'ngRoute']);
+var code4life = angular.module('code4life', [
+    'ngMaterial', 
+    'ngRoute',
+    'code4life.home']);
 
 code4life.controller('testCtrl', ['$scope', function ($scope) {
     var vm = this;
@@ -10,20 +13,18 @@ code4life.config(function ($routeProvider) {
   /**
    * $routeProvider
    */
-  path = "/templates/pages/";
 
   $routeProvider
   .when('/', {
-    templateUrl: 'dashboard.html',
-    controller: 'testCtrl'
+    templateUrl: 'pages/home.html',
+    controller: 'homeCtrl'
   })
-  .when('/test', {
-    templateUrl: 'test.html',
+  .when('/choose-city', {
+    templateUrl: 'pages/first-filter.html',
     controller: 'testCtrl'
   })
   .otherwise({
-    redirectTo: '/',
-    controller: 'testCtrl'
+    redirectTo: '/'
   });
 
 });

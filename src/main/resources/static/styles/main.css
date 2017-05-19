@@ -1,0 +1,13 @@
+.content{
+    position: relative;
+    /*top: 150px;*/
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.nav{
+    height: 150px;
+}
+md-toolbar{
+    height: 100%;
+}
