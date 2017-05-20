@@ -10,11 +10,27 @@ html, body{
     margin: 0;
     height: 85%;
 }
-.nav{
-    height: 15%;
-    background-color: #fff;
+.mainContainer {
+    max-width: 1300px;
+    margin: 0 auto;
 }
-md-toolbar{
-    height: 100%;
-    background-color: #fff;
+.goToJobSearcher {
+    min-width: 50%;
+    max-width: 50% !important;
+    width: 50vw;
+    height: 50vw;
+    background: url("../img/szukampracy.png");
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+
+.logo {
+    height: auto;
+    width: 50%;
+    padding-left: 24px;
+    padding-top:24px;
 }

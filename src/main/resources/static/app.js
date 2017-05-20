@@ -5,9 +5,10 @@ var code4life = angular.module('code4life', [
     'code4life.chooseCity',
     'code4life.search']);
 
-code4life.controller('testCtrl', ['$scope', function ($scope) {
-    var vm = this;
-    vm.test = "hello world";
+
+code4life.controller('mainCtrl', ['$scope', function ($scope) {
+    $scope.notChoose = true;
+    console.log("dzialan");
 }]);
 
 code4life.config(function ($routeProvider) {
@@ -21,7 +22,7 @@ code4life.config(function ($routeProvider) {
     templateUrl: 'pages/home.html',
     controller: 'homeCtrl'
   })
-  .when('/choose-city', {
+  .when('/search-job', {
     templateUrl: 'pages/first-filter.html',
     controller: 'chooseCityCtrl'
   })
@@ -32,5 +33,6 @@ code4life.config(function ($routeProvider) {
   .otherwise({
     redirectTo: '/'
   });
+
 
 });
