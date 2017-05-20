@@ -109,7 +109,7 @@ public class DataBaseInitController {
 
         jobOfferRepository.save(jobOffer3);
 
-        jobOfferRepository.save(jobOffer3);
+
 
         JobOffer jobOffer4 = new JobOffer();
         jobOffer4.setCompanyId(1L);
@@ -127,6 +127,7 @@ public class DataBaseInitController {
         jobOffer4.setSkills("Skill1, Odporność psychiczna, Skill3, Skill4");
         jobOffer4.setBonuses(null);
         jobOffer4.setTitle("Miła atmosfera w rzeźni");
+
 
         jobOfferRepository.save(jobOffer4);
 
