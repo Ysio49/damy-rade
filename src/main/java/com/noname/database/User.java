@@ -3,7 +3,6 @@ package com.noname.database;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
 import java.util.List;
 
 
@@ -18,8 +17,9 @@ public class User {
     private String firstName;
     private String lastName;
     private String birthDate;
-    private String number;
-
+    private String telephone;
+    private String about;
+    private String img;
     //login process
     private String password;
     private String emailAddress;
@@ -32,25 +32,15 @@ public class User {
 
 
     //wykształcenie
-    private String university;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDate=" + birthDate +
-                ", number='" + number + '\'' +
-                ", password='" + password + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", city='" + city + '\'' +
-                ", postcode='" + postcode + '\'' +
-                ", street='" + street + '\'' +
-                ", homeNumber='" + homeNumber + '\'' +
-                ", university='" + university + '\'' +
-                '}';
-    }
+    private String certificates;
+    private String educationLevel;
+    private String university;
+    private String skills;
+    private String offersApplied;
+    private String offersWatched;
+    private String portfolioUrl;
+
 
     public Long getId() {
         return id;
@@ -84,12 +74,28 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public String getNumber() {
-        return number;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getPassword() {
@@ -140,6 +146,21 @@ public class User {
         this.homeNumber = homeNumber;
     }
 
+    public String getCertificates() {
+        return certificates;
+    }
+
+    public void setCertificates(String certificates) {
+        this.certificates = certificates;
+    }
+
+    public String getEducationLevel() {
+        return educationLevel;
+    }
+
+    public void setEducationLevel(String educationLevel) {
+        this.educationLevel = educationLevel;
+    }
 
     public String getUniversity() {
         return university;
@@ -147,5 +168,63 @@ public class User {
 
     public void setUniversity(String university) {
         this.university = university;
+    }
+
+    public String getSkills() {
+        return skills;
+    }
+
+    public void setSkills(String skills) {
+        this.skills = skills;
+    }
+
+    public String getOffersApplied() {
+        return offersApplied;
+    }
+
+    public void setOffersApplied(String offersApplied) {
+        this.offersApplied = offersApplied;
+    }
+
+    public String getOffersWatched() {
+        return offersWatched;
+    }
+
+    public void setOffersWatched(String offersWatched) {
+        this.offersWatched = offersWatched;
+    }
+
+    public String getPortfolioUrl() {
+        return portfolioUrl;
+    }
+
+    public void setPortfolioUrl(String portfolioUrl) {
+        this.portfolioUrl = portfolioUrl;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", about='" + about + '\'' +
+                ", img='" + img + '\'' +
+                ", password='" + password + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", city='" + city + '\'' +
+                ", postcode='" + postcode + '\'' +
+                ", street='" + street + '\'' +
+                ", homeNumber='" + homeNumber + '\'' +
+                ", certificates='" + certificates + '\'' +
+                ", educationLevel='" + educationLevel + '\'' +
+                ", university='" + university + '\'' +
+                ", skills='" + skills + '\'' +
+                ", offersApplied='" + offersApplied + '\'' +
+                ", offersWatched='" + offersWatched + '\'' +
+                ", portfolioUrl='" + portfolioUrl + '\'' +
+                '}';
     }
 }
