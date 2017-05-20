@@ -1,56 +1,85 @@
 <div class="container-search">
-    <div data-layout="column">
+    <div data-layout="column" flex="100" data-layout-align="center center">
 
-        <md-whiteframe style="background-color: white; margin-top:18px" class="md-whiteframe-10dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" data-layout="column" data-layout-align="center center">
+        <md-whiteframe style="background-color: white; margin-top:18px; width: 80%;" class="md-whiteframe-10dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" data-layout="column" data-layout-align="center center">
 
             <h2 style="margin-bottom: 10px">filtrowanie wyników</h2>
             <div data-layout="row">
-            <md-input-container style="margin-right: 10px;">
-                <label>branża</label>
-                <md-select ng-model="selectedFilters.field">
-                    <md-option ng-repeat="field in filters.field" value="{{field}}">{{field}}</md-option>
-                </md-select>
-            </md-input-container>
-            <md-input-container style="margin-right: 10px;">
-                <label>rodzaj umowy</label>
-                <md-select ng-model="selectedFilters.contractType">
-                    <md-option ng-repeat="contractType in filters.contractType" value="{{contractType}}">{{contractType}}</md-option>
-                </md-select>
-            </md-input-container>
-            <md-input-container style="margin-right: 10px;">
-                <label>charakter pracy</label>
-                <md-select ng-model="selectedFilters.jobType">
-                    <md-option ng-repeat="jobType in filters.jobType" value="{{jobType}}">{{jobType}}</md-option>
-                </md-select>
-            </md-input-container>
-            <md-input-container style="margin-right: 10px;">
-                <label>umiejętności</label>
-                <md-select ng-model="selectedFilters.skills">
-                    <md-option ng-repeat="skills in filters.skills" value="{{skills}}">{{skills}}</md-option>
-                </md-select>
-            </md-input-container>
-            <md-input-container style="margin-right: 10px;">
-                <label>wymiar czasu pracy</label>
-                <md-select ng-model="selectedFilters.timeType">
-                    <md-option ng-repeat="timeType in filters.timeType" value="{{timeType}}">{{timeType}}</md-option>
-                </md-select>
-            </md-input-container>
+            <!--<md-input-container style="margin-right: 10px;">-->
+                <!--<label>branża</label>-->
+                <!--<md-select ng-model="selectedFilters.field">-->
+                    <!--<md-option ng-repeat="field in filters.field" value="{{field}}">{{field}}</md-option>-->
+                <!--</md-select>-->
+            <!--</md-input-container>-->
+            <!--<md-input-container style="margin-right: 10px;">-->
+                <!--<label>rodzaj umowy</label>-->
+                <!--<md-select ng-model="selectedFilters.contractType">-->
+                    <!--<md-option ng-repeat="contractType in filters.contractType" value="{{contractType}}">{{contractType}}</md-option>-->
+                <!--</md-select>-->
+            <!--</md-input-container>-->
+            <!--<md-input-container style="margin-right: 10px;">-->
+                <!--<label>charakter pracy</label>-->
+                <!--<md-select ng-model="selectedFilters.jobType">-->
+                    <!--<md-option ng-repeat="jobType in filters.jobType" value="{{jobType}}">{{jobType}}</md-option>-->
+                <!--</md-select>-->
+            <!--</md-input-container>-->
+            <!--<md-input-container style="margin-right: 10px;">-->
+                <!--<label>umiejętności</label>-->
+                <!--<md-select ng-model="selectedFilters.skills">-->
+                    <!--<md-option ng-repeat="skills in filters.skills" value="{{skills}}">{{skills}}</md-option>-->
+                <!--</md-select>-->
+            <!--</md-input-container>-->
+            <!--<md-input-container style="margin-right: 10px;">-->
+                <!--<label>wymiar czasu pracy</label>-->
+                <!--<md-select ng-model="selectedFilters.timeType">-->
+                    <!--<md-option ng-repeat="timeType in filters.timeType" value="{{timeType}}">{{timeType}}</md-option>-->
+                <!--</md-select>-->
+            <!--</md-input-container>-->
+                <label for="field">branża</label>
+                <select name="field" id="field" ng-model="selectedFilters.field">
+                    <option ng-repeat="field in filters.field" value="{{field}}">{{field}}</option>
+                </select>
+                <label for="contractType">rodzaj umowy</label>
+                <select name="contractType" id="contractType" ng-model="selectedFilters.contractType">
+                    <option ng-repeat="contractType in filters.contractType" value="{{contractType}}">{{field}}</option>
+                </select>
+                <label for="skills">Umiejętności</label>
+                <select name="skills" id="skills" ng-model="selectedFilters.skills">
+                    <option ng-repeat="skills in filters.skills" value="{{skills}}">{{skills}}</option>
+                </select>
+                <label for="jobType">charakter pracy</label>
+                <select name="jobType" id="jobType" ng-model="selectedFilters.jobType">
+                    <option ng-repeat="jobType in filters.jobType" value="{{jobType}}">{{jobType}}</option>
+                </select>
+                <label for="timeType">Wymiar czasu pracy</label>
+                <select name="timeType" id="timeType" ng-model="selectedFilters.timeType">
+                    <option ng-repeat="timeType in filters.timeType" value="{{timeType}}">{{timeType}}</option>
+                </select>
+
+
             </div>
         </md-whiteframe>
-        <div class="offers-search">
-            <div class="offer-search" ng-repeat="offer in offers track by $index">
-                <div class="offer1 offer" ng-show="$index % 2 != 0">
-                    <h2>{{offer.description}}</h2>
-                    <span>{{offer.jobType}} <br/>
+        <div class="jobOffers" data-layout="column" data-layout-align="center center">
+            <md-whiteframe ng-repeat="offer in offers" style="background-color: white; width: 65%" data-layout="column" class="md-whiteframe-5dp" layout-margin="" layout-padding="">
+                <h3>{{offer.title}}</h3>
+                <span>{{offer.jobType}} <br/>
                 {{offer.city}}</span>
-                </div>
-                <div class="offer2 offer" ng-show="$index % 2 == 0">
-                    <h2>{{offer.description}}</h2>
-                    <span>{{offer.jobType}} <br/>
-                {{offer.city}}</span>
-                </div>
-            </div>
+            </md-whiteframe>
         </div>
+        <!--<div class="offers-search">-->
+            <!--<div class="offer-search" ng-repeat="offer in offers track by $index">-->
+                <!--<div class="offer1 offer" ng-show="$index % 2 != 0">-->
+                    <!--<h2>{{offer.description}}</h2>-->
+                    <!--<span>{{offer.jobType}} <br/>-->
+                <!--{{offer.city}}</span>-->
+                <!--</div>-->
+                <!--<div class="offer2 offer" ng-show="$index % 2 == 0">-->
+                    <!--<h2>{{offer.description}}</h2>-->
+                    <!--<span>{{offer.jobType}} <br/>-->
+                <!--{{offer.city}}</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
 
 
