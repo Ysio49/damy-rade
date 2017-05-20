@@ -1,63 +1,30 @@
-/*.container-home{*/
-    /*width: 100vw;*/
-    /*color: #fff;*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-/*}*/
-
-/*.btn-home{*/
-    /*height: 100vw;*/
-    /*min-height: 100vw;*/
-    /*position: relative;*/
-    /*!*background-color: #22BFC6;*!*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-/*}*/
-
-.btn-home h1{
-    max-width: 100%;
-    width: 100%;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    font-size: 350%;
-}
-
-/*!*.btn-home:hover{*!*/
-    /*!*opacity: 0.45;*!*/
-/*!*}*!*/
-
-/*!*.btn-home:hover h1{*!*/
-    /*!*font-size: 500%;*!*/
-/*!*}*!*/
-
-/*.workers-home{*/
-    /*background-image: url("../img/szukampracy.png");*/
-    /*background-size: 100% 100%;*/
-    /*background-repeat: no-repeat;*/
-/*}*/
-
-/*.employers-home{*/
-    /*background-image: url("../img/zlecamprace.png");*/
-    /*background-size: 100% 100%;*/
-    /*background-repeat: no-repeat;*/
-/*}*/
-
-.button {
-    width: 100vw;
-    height: 40vw;
-
-}
-
-.lookingForJob {
-    background-image: url("../img/szukampracy.png");
-    background-size: contain;
-
-}
-
-.lookingForEmployee {
-    background-image: url("../img/zlecamprace.png");
+.jobsearch{
+    background-image: url('../img/szukampracy.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: 42.5vw;
+}
+
+.givejob {
+    background-image: url('../img/zlecamprace.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: 42.5vw;
+}
+
+a {
+    text-align: center;
+    padding-top: 40%;
+    font-size: 300%;
+    height: inherit;
+    display:block;
+    color: #ffffff;
+    text-decoration:none;
+    margin-bottom:1px;
+}
+a:hover {
+    font-size:350%;
+    background-color: rgba(255,255,255,0.30)
 }

@@ -68,5 +68,9 @@ public class DataBaseController {
         return jobOfferRepository.findAll();
     }
 
+    @RequestMapping("/getOffersByCity")
+    public List<JobOffer> getOffersByCity(@RequestParam("city") String city) {
+        return jobOfferRepository.findByCity(city);
+    }
 
 }
