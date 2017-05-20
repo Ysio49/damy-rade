@@ -251,6 +251,12 @@ function startVoiceInterface() {
           index --;
           if(lastSelect == -1) return;
           $('select')[lastSelect][index].selected = 'selected';
+        },
+        'zwiń': function() {
+            for(var i = 0; i < $('select').length; i ++) {
+                sel = $('select')[i];
+                sel.setAttribute('size', 1);
+            }
         }
     };
 

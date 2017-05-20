@@ -29,7 +29,7 @@ code4life.controller('searchCtrl', [ '$scope', '$routeParams', '$http', function
 
     $http({
         method: 'GET',
-        url: 'api/getAllOffer/'
+        url: 'api/getOffersByCity?city=' + city
     }).then(function successCallback(response) {
         $scope.offersMeta = response.data;
         $scope.offers = response.data;

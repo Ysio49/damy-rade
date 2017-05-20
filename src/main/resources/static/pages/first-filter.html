@@ -1,7 +1,6 @@
-<div class="container-choose-city">
-    <img src="../img/miasto.png" alt="obrazek miasta">
-    <label for="city">wybierz miasto lub region</label>
-    <input type="text" id="city" ng-model="value">
-    <!--<a href="#/search/{{value}}"><md-button class="btn-search">SZUKAJ PRACY</md-button></a>-->
-    <md-button class="btn-search" onClick="window.location.replace('#/search/'+$('#SZUKAJ PRACY</md-button>
+<div class="container-choose-city" style="height: 100vh;">
+    <img src="../img/miasto.png" style="height: 15vh; position: relative; bottom: 10% " alt="obrazek miasta">
+    <label style="position: relative; bottom: 10% "for="city">wybierz miasto lub region</label>
+    <input style="position: relative; bottom: 10% "type="text" id="city" ng-model="value">
+    <md-button style="position: relative; bottom: 10%" class="btn-search" onClick="window.location.replace('#/search/'+$('#city').val())">SZUKAJ PRACY</md-button>
 </div>
