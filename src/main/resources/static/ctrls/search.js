@@ -75,5 +75,18 @@ code4life.controller('searchCtrl', [ '$scope', '$routeParams', '$http', function
 
     };
 
+    $scope.cleanFilter = function ()  {
+        $scope.offers = $scope.offersMeta;
+        $scope.selectedFilters.field = "";
+        $scope.selectedFilters.contractType = "";
+        $scope.selectedFilters.jobType = "";
+        $scope.selectedFilters.skills = "";
+        $scope.selectedFilters.timeType = "";
+    };
+
+    $scope.aktualizuj = function() {
+        filter();
+    }
+
 }]);
 
