@@ -19,6 +19,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-cookies.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script src="../ctrls/voicenav.js"></script>
+
 
     <script type="text/javascript" th:src="@{/app.js}"></script>
     <script type="text/javascript" th:src="@{/ctrls/home.js}"></script>
@@ -28,7 +32,7 @@
 </head>
 <body data-ng-app="code4life" style="height: 100%">
 
-    <div class="mainContainer" data-layout="column" data-layout-align="center center" data-ng-controller="mainCtrl">
+
         <div layout="row" data-layout-align="center center" class="nav" data-flex="100" >
 
             <div data-flex="33">
@@ -38,16 +42,20 @@
 
             </div>
             <div data-flex="33" layout="row">
-                <md-button  class="md-raised ">Button</md-button>
-                <md-button  class="md-raised">Załóż konto</md-button>
+                <span id="microphone-state">Wyłączona</span>
+                <script>
+                    if(annyang) {
+                        document.write('<img src="../img/microoff.png" id="micbutt" onClick="startVoiceInterface();" />');
+                    }
+                </script>
+
+                <md-button  class="md-raised " onClick="alert('BUTTON!');">Button</md-button>
+                <md-button  class="md-raised" onClick="alert('KONTO!');">Załóż konto</md-button>
             </div>
         </div>
         <div ng-view="" class="content">
 
         </div>
 
-    </div>
 </body>
 </html>
-
-<button type="button" href="location.href='#/nameOfState'">Title on button</button>
