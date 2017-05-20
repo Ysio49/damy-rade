@@ -85,7 +85,7 @@ code4life.controller('searchCtrl', [ '$scope', '$routeParams', '$http', function
     };
 
     $scope.aktualizuj = function() {
-        filter();
+        //filter();
     }
 
 }]);
