@@ -6,9 +6,13 @@ var code4life = angular.module('code4life', [
     'code4life.search']);
 
 
-code4life.controller('mainCtrl', ['$scope', function ($scope) {
+code4life.controller('mainCtrl', ['$scope', '$location', function ($scope, $location) {
     $scope.notChoose = true;
     console.log("dzialan");
+
+    $scope.routeTo = (url)=>{
+        $location.url(`/${url}`);
+    }
 }]);
 
 code4life.config(function ($routeProvider) {

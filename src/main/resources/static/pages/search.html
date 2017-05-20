@@ -7,10 +7,6 @@
             <input type="text" name="city" id="city" ng-model="filters.city"><br/>
         </div>
         <div class="form-section">
-            <label for="region">Region: </label>
-            <input type="text" name="region" id="region" ng-model="filters.region"><br/>
-        </div>
-        <div class="form-section">
         <label for="jobType">Typ pracy</label> 
         <select name="jobType" id="jobType" ng-model="filters.jobType">
             <option value="Biurowa">Biurowa</option>
@@ -51,14 +47,36 @@
     <div class="offers-search">
         <div class="offer-search" ng-repeat="offer in offers track by $index">
             <div class="offer1 offer" ng-show="$index % 2 != 0">
-                <h2>{{offer.description}}</h2>
+                <h2>{{$index+". "+offer.description}}</h2>
                 <span>{{offer.jobType}} <br/>
                 {{offer.city}}</span>
+                <div ng-show="offer.showMore">
+                    <p><span class="bold">Województwo:</span> {{offer.region}}</p>
+                    <p><span class="bold">Branża:</span> {{offer.field}}</p>
+                    <p><span class="bold">Typ umowy:</span> {{offer.contractType}}</p>
+                    <p><span class="bold">Płaca:</span> {{offer.salary}}</p>
+                    <p><span class="bold">Wymiar czasu pracy:</span> {{offer.timeType}}</p>
+                </div>
+                <md-button class="md-raised" ng-click="offer.showMore = !offer.showMore" id="{{$index+1}}">
+                    <span ng-show="!offer.showMore">Pokaż więcej</span>
+                    <span ng-show="offer.showMore">Ukryj</span>
+                </md-button>
             </div>
             <div class="offer2 offer" ng-show="$index % 2 == 0">
-                <h2>{{offer.description}}</h2>
+                <h2>{{$index+". "+offer.description}}</h2>
                 <span>{{offer.jobType}} <br/>
                 {{offer.city}}</span>
+                <div ng-show="offer.showMore">
+                    <p><span class="bold">Województwo:</span> {{offer.region}}</p>
+                    <p><span class="bold">Branża:</span> {{offer.field}}</p>
+                    <p><span class="bold">Typ umowy:</span> {{offer.contractType}}</p>
+                    <p><span class="bold">Płaca:</span> {{offer.salary}}</p>
+                    <p><span class="bold">Wymiar</span> czasu pracy: {{offer.timeType}}</p>
+                </div>
+                <md-button class="md-raised" ng-click="offer.showMore = !offer.showMore" id="{{$index+1}}">
+                    <span ng-show="!offer.showMore">Pokaż więcej</span>
+                    <span ng-show="offer.showMore">Ukryj</span>
+                </md-button>
             </div>
         </div>
     </div>

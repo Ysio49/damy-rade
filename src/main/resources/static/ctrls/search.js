@@ -10,7 +10,6 @@ code4life.controller('searchCtrl', [ '$scope', '$routeParams', '$http', function
         contractType: "",
         field: "",
         jobType: "",
-        region: "",
         skills: "",
         timeType: ""
     };
@@ -18,8 +17,12 @@ code4life.controller('searchCtrl', [ '$scope', '$routeParams', '$http', function
         method: 'GET',
         url: 'api/getAllOffer/'
     }).then(function successCallback(response) {
+        response.data.forEach((el)=>{
+            el.showMore = false;
+        });
         $scope.offers = response.data;
         $scope.offersMeta = response.data;
+
         $scope.filter();
         console.log($scope.offers, "$scope.offers");  
     }, function errorCallback(response) {
