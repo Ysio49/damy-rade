@@ -1,0 +1,25 @@
+<div class="container-search">
+    <div class="left-toolbar-search">
+        <h2>Filtry</h2>
+        <label for="jobType">Typ pracy</label> 
+        <select name="jobType" id="jobType">
+            <option value="Biurowa">Biurowa</option>
+            <option value="Praca zdalna">Praca zdalna</option>
+            <option value="Praca o charakterze mieszanym ">Praca o charakterze mieszanym </option>
+        </select>
+    </div>
+    <div class="offers-search">
+        <div class="offer-search" ng-repeat="offer in offers track by $index">
+            <div class="offer1 offer" ng-show="$index % 2 != 0">
+                <h2>{{offer.description}}</h2>
+                <span>{{offer.jobType}} <br/>
+                {{offer.city}}</span>
+            </div>
+            <div class="offer2 offer" ng-show="$index % 2 == 0">
+                <h2>{{offer.description}}</h2>
+                <span>{{offer.jobType}} <br/>
+                {{offer.city}}</span>
+            </div>
+        </div>
+    </div>
+</div>
