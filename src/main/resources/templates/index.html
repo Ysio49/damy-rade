@@ -24,28 +24,28 @@
     <script type="text/javascript" th:src="@{/ctrls/firstFilter.js}"></script>
 
 </head>
-<body data-ng-app="code4life">
+<body data-ng-app="code4life" style="height: 100%">
 
+    <div class="mainContainer" data-layout="column" data-layout-align="center center" data-ng-controller="mainCtrl">
+        <div layout="row" data-layout-align="center center" class="nav" data-flex="100" >
 
-    <div layout="column" class="nav">
-        <md-toolbar>
-
-            <div class="md-toolbar-tools">
-            <h2 md-truncate="" flex="">Sprawni</h2>
-            <a href="#/">
-                <md-button>Home</md-button>
-            </a>
-            <a href="#/choose-city">
-                <md-button>Search</md-button>
-            </a>
+            <div data-flex="33">
+                <img class="logo" th:src="@{/img/sprawniwpracypllogo.png}"/>
             </div>
+            <div data-flex="33">
 
-        </md-toolbar>
+            </div>
+            <div data-flex="33" layout="row">
+                <md-button  class="md-raised ">Button</md-button>
+                <md-button  class="md-raised">Załóż konto</md-button>
+            </div>
+        </div>
+        <div ng-view="" class="content">
+
+        </div>
+
     </div>
-
-    <div ng-view="" class="content">
-    </div>
-
-
 </body>
 </html>
+
+<button type="button" href="location.href='#/nameOfState'">Title on button</button>

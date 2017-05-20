@@ -1,5 +1,7 @@
 package com.noname.controller;
 
+import com.noname.database.JobOffer;
+import com.noname.database.JobOfferRepository;
 import com.noname.database.User;
 import com.noname.database.UserRepository;
 import org.hibernate.validator.internal.util.IgnoreJava6Requirement;
@@ -9,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class DataBaseController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private JobOfferRepository jobOfferRepository;
 
     @RequestMapping(value="/addNewUser", method= RequestMethod.POST)
     public void addNewUser(@RequestParam("firstName") String firstName,
@@ -55,6 +61,11 @@ public class DataBaseController {
     public User getUser(@RequestParam("email") String email) {
         User user = userRepository.findByEmailAddress(email);
         return user;
+    }
+
+    @RequestMapping("/getAllOffer")
+    public List<JobOffer> getAllOffers(){
+        return jobOfferRepository.findAll();
     }
 
 }
