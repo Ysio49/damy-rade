@@ -1,7 +1,8 @@
 var code4life = angular.module('code4life', [
     'ngMaterial', 
     'ngRoute',
-    'code4life.home']);
+    'code4life.home',
+    'code4life.chooseCity']);
 
 code4life.controller('testCtrl', ['$scope', function ($scope) {
     var vm = this;
@@ -21,7 +22,7 @@ code4life.config(function ($routeProvider) {
   })
   .when('/choose-city', {
     templateUrl: 'pages/first-filter.html',
-    controller: 'testCtrl'
+    controller: 'chooseCityCtrl'
   })
   .otherwise({
     redirectTo: '/'

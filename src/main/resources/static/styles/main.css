@@ -1,4 +1,7 @@
 
+html, body{
+    font-family: Verdana, sans-serif;
+}
 .content{
     position: relative;
     /*top: 150px;*/
