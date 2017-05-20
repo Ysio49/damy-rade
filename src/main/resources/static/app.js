@@ -22,7 +22,7 @@ code4life.config(function ($routeProvider) {
     templateUrl: 'pages/home.html',
     controller: 'homeCtrl'
   })
-  .when('/search-job', {
+  .when('/search', {
     templateUrl: 'pages/first-filter.html',
     controller: 'chooseCityCtrl'
   })

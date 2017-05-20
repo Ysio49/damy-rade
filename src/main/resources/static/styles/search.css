@@ -34,3 +34,43 @@
 }
 /* END CHOOSE CITY STYLES */
 
+.container-search{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #22BFC6;
+}
+.left-toolbar-search{
+    width: 25%;
+    height: 80%;
+    margin-left: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+.offers-search{
+    width: 50%;
+    height: 80%;
+    margin-left: 30px;
+}
+
+.offer{
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.offer1{
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.offer2{
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.offer span{
+    font-size: 120%;
+}
