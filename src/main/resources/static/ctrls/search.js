@@ -1,49 +1,64 @@
 
-angular.module('code4life.search', ['ngRoute'])
+angular.module('code4life.search', ['ngRoute','ngMaterial'])
 
 code4life.controller('searchCtrl', [ '$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
-    var city = $routeParams.city; 
+    var city = $routeParams.city;
+    $scope.noResult = false;
+    $scope.noFilters = false;
     $scope.offersMeta = [];
     $scope.offers = [];
+    $
+
     $scope.filters = {
         city: city,
-        contractType: "",
-        field: "",
-        jobType: "",
-        region: "",
-        skills: "",
-        timeType: ""
+        contractType: Array,
+        field: Array,
+        jobType: Array,
+        skills: Array,
+        timeType: Array
     };
+
+    $scope.selectedFilters = {
+        city: Array,
+        contractType: Array,
+        field: Array,
+        jobType: Array,
+        skills: Array,
+        timeType: Array
+    };
+
     $http({
         method: 'GET',
         url: 'api/getAllOffer/'
     }).then(function successCallback(response) {
-        $scope.offers = response.data;
         $scope.offersMeta = response.data;
-        $scope.filter();
+        $scope.offers = response.data;
         console.log($scope.offers, "$scope.offers");  
     }, function errorCallback(response) {
         $scope.offers = [];
+        $scope.noResult = true;
         console.log("nie ma takiego kanału");
     });
 
-    $scope.$watch('filters', $scope.filter, true);
+    $http({
+        method: 'GET',
+        url: 'filters/getAllFilters'
+    }).then(function successCallBack(response) {
+        $scope.filters = response.data;
+        console.log($scope.filters);
+    }, function errorCallBack(response) {
+        $scope.filters = undefined;
+        $scope.noFilters = true;
+        console.log("brak filtrów");
+    });
 
-    $scope.filter = ()=>{
-        var arr = $scope.offersMeta;
-        $scope.offers = [];
-        for( key in $scope.filters ){   
-            arr = arr.filter((elem)=>{
-                console.log(elem[key], $scope.filters[key], "elem[key], $scope.filters[key]");
-                if( $scope.filters[key] != "" ) {
-                    return elem[key] == $scope.filters[key];
-                } else {
-                    return true;
-                }
-            });
-        }
-        $scope.offers = arr;
-        console.log($scope.offers, "$scope.offers");
-    }
+    $scope.$watch('selectedFilters', function (newValue,oldValue) {
+        filter();
+    }, true);
+
+    var filter = function() {
+        console.log("coś się zmienia. najs!")
+    };
+
 }]);
 
