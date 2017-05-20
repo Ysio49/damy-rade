@@ -1,69 +1,51 @@
 <div class="container-search">
-    <div class="left-toolbar-search">
-        <h2>Filtry</h2>
+    <div data-layout="column" flex="100" data-layout-align="center center">
 
-        <div class="form-section">
-            <label for="city">Miasto: </label>
-            <input type="text" name="city" id="city" ng-model="filters.city"><br/>
-        </div>
-        <div class="form-section">
-        <label for="jobType">Typ pracy</label> 
-        <select name="jobType" id="jobType" ng-model="filters.jobType">
-            <option value="Biurowa">Biurowa</option>
-            <option value="Praca zdalna">Praca zdalna</option>
-            <option value="Praca o charakterze mieszanym ">Praca o charakterze mieszanym </option>
-            <option value=""></option>
-        </select><br/>
-        </div>
-        <div class="form-section">
-        <label for="contractType">Typ umowy</label> 
-        <select name="contractType" id="contractType" ng-model="filters.contractType">
-            <option value="Umowa o pracę">Umowa o pracę</option>
-            <option value=""></option>
-        </select><br/>
-        </div>  
-        <div class="form-section">
-        <label for="timeType">Typ umowy</label> 
-        <select name="timeType" id="timeType" ng-model="filters.timeType">
-            <option value=""></option>
-            <option value="Pełen etat">Pełen etat</option>
-        </select><br/>
-        </div>
-        <div class="form-section">
-        <label for="skills">Umiejętności</label> 
-        <select name="skills" id="skills" ng-model="filters.skills">
-            <option value=""></option>
-            <option value="Zmywanie">Zmywanie</option>
-        </select><br/>
-        </div>
-        <div class="form-section">
-        <label for="field">Branża</label> 
-        <select name="field" id="field" ng-model="filters.field">
-            <option value=""></option>
-            <option value="IT">IT</option>
-        </select>
-        </div>
-    </div>
-    <div class="offers-search">
-        <div class="offer-search" ng-repeat="offer in offers track by $index">
-            <div class="offer1 offer" ng-show="$index % 2 != 0">
-                <h2>{{$index+". "+offer.description}}</h2>
-                <span>{{offer.jobType}} <br/>
-                {{offer.city}}</span>
-                <div ng-show="offer.showMore">
-                    <p><span class="bold">Województwo:</span> {{offer.region}}</p>
-                    <p><span class="bold">Branża:</span> {{offer.field}}</p>
-                    <p><span class="bold">Typ umowy:</span> {{offer.contractType}}</p>
-                    <p><span class="bold">Płaca:</span> {{offer.salary}}</p>
-                    <p><span class="bold">Wymiar czasu pracy:</span> {{offer.timeType}}</p>
+        <md-whiteframe style="background-color: white; margin-top:18px; width: 80%;" class="md-whiteframe-10dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" data-layout="column" data-layout-align="center center">
+
+            <h2 style="margin-bottom: 10px">filtrowanie wyników</h2>
+            <div data-layout="row" layout-wrap="" data-layout-align="center center" >
+
+                <div id="styled-select slate" >
+                <label for="field">branża</label>
+                <select name="field" id="field" ng-model="selectedFilters.field">
+                    <option ng-repeat="field in filters.field" value="{{field}}">{{field}}</option>
+                </select>
                 </div>
-                <md-button class="md-raised" ng-click="offer.showMore = !offer.showMore" id="{{$index+1}}">
-                    <span ng-show="!offer.showMore">Pokaż więcej</span>
-                    <span ng-show="offer.showMore">Ukryj</span>
-                </md-button>
+                <div id="styled-select slaten" >
+                <label for="contractType">rodzaj umowy</label>
+                <select name="contractType" id="contractType" ng-model="selectedFilters.contractType">
+                    <option ng-repeat="contractType in filters.contractType" value="{{contractType}}">{{contractType}}</option>
+                </select>
+                </div>
+                <div id="styled-select slate" >
+                <label for="skills">Umiejętności</label>
+                <select name="skills" id="skills" ng-model="selectedFilters.skills">
+                    <option ng-repeat="skills in filters.skills" value="{{skills}}">{{skills}}</option>
+                </select>
+                </div>
+                <div id="styled-select slate" >
+                <label for="jobType">charakter pracy</label>
+                <select name="jobType" id="jobType" ng-model="selectedFilters.jobType">
+                    <option ng-repeat="jobType in filters.jobType" value="{{jobType}}">{{jobType}}</option>
+                </select>
+                </div>
+                <div id="styled-select slate" >
+                <label for="timeType">Wymiar czasu pracy</label>
+                <select name="timeType" id="timeType" ng-model="selectedFilters.timeType">
+                    <option ng-repeat="timeType in filters.timeType" value="{{timeType}}">{{timeType}}</option>
+                </select>
+                </div>
+
+                <md-button class="md-raised md-primary" ng-click="aktualizuj()">Filtruj</md-button>
+                <md-button class="md-raised md-primary" ng-click="cleanFilter()">Usuń filtry</md-button>
+
+
             </div>
-            <div class="offer2 offer" ng-show="$index % 2 == 0">
-                <h2>{{$index+". "+offer.description}}</h2>
+        </md-whiteframe>
+        <div class="jobOffers" data-layout="column" data-layout-align="center center">
+            <md-whiteframe ng-repeat="offer in offers" style="background-color: white; width: 65vw" data-layout="column" class="md-whiteframe-5dp" layout-margin="" layout-padding="">
+                <h3>{{$index+". "+offer.description}}</h3>
                 <span>{{offer.jobType}} <br/>
                 {{offer.city}}</span>
                 <div ng-show="offer.showMore">
@@ -77,7 +59,9 @@
                     <span ng-show="!offer.showMore">Pokaż więcej</span>
                     <span ng-show="offer.showMore">Ukryj</span>
                 </md-button>
-            </div>
+            </md-whiteframe>
         </div>
+
     </div>
+
 </div>

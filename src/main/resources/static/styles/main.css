@@ -37,3 +37,7 @@ html, body{
     padding-left: 24px;
     padding-top:24px;
 }
+
+.md-raised:focus{
+    border: #22BFC6 solid 2px;
+}

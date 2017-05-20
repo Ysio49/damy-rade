@@ -41,16 +41,15 @@
             <div data-flex="33">
 
             </div>
-            <div data-flex="33" layout="row">
-                <span id="microphone-state">Wyłączona</span>
+            <div data-flex="33" layout="row" datalayout="row" layout-align="end center">
                 <script>
                     if(annyang) {
-                        document.write('<img src="../img/microoff.png" id="micbutt" onClick="startVoiceInterface();" />');
+                        document.write('<img width="40" height="40" src="../img/nosound.png" id="micbutt" onClick="startVoiceInterface();" />');
                     }
                 </script>
-
                 <md-button  class="md-raised " onClick="routeTo('home')">Home</md-button>
                 <md-button  class="md-raised" onClick="routeTo('search')">Search</md-button>
+                <md-button  class="md-raised" onClick="alert('KONTO!');">Załóż konto</md-button>
             </div>
         </div>
         <div ng-view="" class="content">

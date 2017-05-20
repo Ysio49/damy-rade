@@ -5,6 +5,7 @@ var lastCheckbox = -1;
 var currVideo = null;
 var lastParagraph = [0, 0, 0, 0, 0, 0];
 var lastDeep = 1;
+var lastSelect = -1;
 
 function parseNum(num) {
   switch(num) {
@@ -14,6 +15,11 @@ function parseNum(num) {
     case 'czwartego': return 4;
     case 'piątego': return 5;
     case 'szóstego': return 6;
+      case 'jeden': return 1;
+      case 'dwa': return 2;
+      case 'trzy': return 3;
+      case 'cztery': return 4;
+      case 'pięć': return 5;
     default: return num;
   }
 }
@@ -23,8 +29,7 @@ function startVoiceInterface() {
     if(annyang.isListening()) {
       annyang.abort();
       console.log('Voice interface deactivated.');
-      $("#microphone-state").text("Wyłączona");
-      $("#micbutt").attr("src", "../img/microoff.png");
+      $("#micbutt").attr("src", "../img/nosound.png");
       return;
     }
 
@@ -225,7 +230,34 @@ function startVoiceInterface() {
       'w górę :lines': function(lines) {
         var y = $(window).scrollTop();
         $("html, body").animate({ scrollTop: y - lines * parseInt($('body').css('font-size')) * $('body').css('zoom') }, 600);
-      }
+      },
+        'rozwiń :index': function(index) {
+        index = parseNum(index);
+          index --;
+          lastSelect = index;
+            var sel = $('select')[index];
+            var len = sel.options.length;
+
+            sel.setAttribute('size', len);
+
+            for(var i = 0; i < $('select').length; i ++) {
+              if(i == index) continue;
+              sel = $('select')[i];
+              sel.setAttribute('size', 1);
+            }
+        },
+        'wybierz :index': function(index) {
+          index = parseNum(index);
+          index --;
+          if(lastSelect == -1) return;
+          $('select')[lastSelect][index].selected = 'selected';
+        },
+        'zwiń': function() {
+            for(var i = 0; i < $('select').length; i ++) {
+                sel = $('select')[i];
+                sel.setAttribute('size', 1);
+            }
+        }
     };
 
     annyang.addCommands(commands);
@@ -235,26 +267,22 @@ function startVoiceInterface() {
     });
 
     annyang.addCallback('soundstart', function() {
-        $("#microphone-state").text("Włączona - słucha");
-        $("#micbutt").attr("src", "../img/microlisten.png");
+        $("#micbutt").attr("src", "../img/sound listen.gif");
     });
 
       annyang.addCallback('resultMatch', function() {
-          $("#microphone-state").text("Włączona - czeka");
-          $("#micbutt").attr("src", "../img/microon.png");
+          $("#micbutt").attr("src", "../img/sound wait.gif");
       });
 
       annyang.addCallback('resultNoMatch', function() {
-          $("#microphone-state").text("Włączona - czeka");
-          $("#micbutt").attr("src", "../img/microon.png");
+          $("#micbutt").attr("src", "../img/sound wait.gif");
       });
 
     annyang.start({ autoRestart: true, continuous: false });
     annyang.debug();
 
     console.log('Voice interface initialised.');
-      $("#microphone-state").text("Włączona - czeka");
-      $("#micbutt").attr("src", "../img/microon.png");
+      $("#micbutt").attr("src", "../img/sound wait.gif");
   }
 }
 
