@@ -19,12 +19,12 @@ code4life.controller('searchCtrl', [ '$scope', '$routeParams', '$http', function
     };
 
     $scope.selectedFilters = {
-        city: Array,
-        contractType: Array,
-        field: Array,
-        jobType: Array,
-        skills: Array,
-        timeType: Array
+        city: "",
+        contractType: "",
+        field: "",
+        jobType: "",
+        skills: "",
+        timeType: ""
     };
 
     $http({
@@ -57,7 +57,22 @@ code4life.controller('searchCtrl', [ '$scope', '$routeParams', '$http', function
     }, true);
 
     var filter = function() {
-        console.log("coś się zmienia. najs!")
+
+        var subOffers = [];
+        for(var i=0; i<$scope.offersMeta.length;i++) {
+
+            if($scope.offersMeta[i].contractType.includes($scope.selectedFilters.contractType) &&
+                $scope.offersMeta[i].field.includes($scope.selectedFilters.field) &&
+                $scope.offersMeta[i].jobType.includes($scope.selectedFilters.jobType) &&
+                $scope.offersMeta[i].skills.includes($scope.selectedFilters.skills) &&
+                $scope.offersMeta[i].timeType.includes($scope.selectedFilters.timeType)) {
+                subOffers.push($scope.offersMeta[i]);
+            }
+
+
+        }
+        $scope.offers = subOffers;
+
     };
 
 }]);
