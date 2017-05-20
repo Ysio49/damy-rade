@@ -1,65 +1,59 @@
 <div class="container-search">
-    <div class="left-toolbar-search">
-        <h2>Filtry</h2>
+    <div data-layout="column">
 
-        <div class="form-section">
-            <label for="city">Miasto: </label>
-            <input type="text" name="city" id="city" ng-model="filters.city"><br/>
-        </div>
-        <div class="form-section">
-            <label for="region">Region: </label>
-            <input type="text" name="region" id="region" ng-model="filters.region"><br/>
-        </div>
-        <div class="form-section">
-        <label for="jobType">Typ pracy</label> 
-        <select name="jobType" id="jobType" ng-model="filters.jobType">
-            <option value="Biurowa">Biurowa</option>
-            <option value="Praca zdalna">Praca zdalna</option>
-            <option value="Praca o charakterze mieszanym ">Praca o charakterze mieszanym </option>
-            <option value=""></option>
-        </select><br/>
-        </div>
-        <div class="form-section">
-        <label for="contractType">Typ umowy</label> 
-        <select name="contractType" id="contractType" ng-model="filters.contractType">
-            <option value="Umowa o pracę">Umowa o pracę</option>
-            <option value=""></option>
-        </select><br/>
-        </div>  
-        <div class="form-section">
-        <label for="timeType">Typ umowy</label> 
-        <select name="timeType" id="timeType" ng-model="filters.timeType">
-            <option value=""></option>
-            <option value="Pełen etat">Pełen etat</option>
-        </select><br/>
-        </div>
-        <div class="form-section">
-        <label for="skills">Umiejętności</label> 
-        <select name="skills" id="skills" ng-model="filters.skills">
-            <option value=""></option>
-            <option value="Zmywanie">Zmywanie</option>
-        </select><br/>
-        </div>
-        <div class="form-section">
-        <label for="field">Branża</label> 
-        <select name="field" id="field" ng-model="filters.field">
-            <option value=""></option>
-            <option value="IT">IT</option>
-        </select>
-        </div>
-    </div>
-    <div class="offers-search">
-        <div class="offer-search" ng-repeat="offer in offers track by $index">
-            <div class="offer1 offer" ng-show="$index % 2 != 0">
-                <h2>{{offer.description}}</h2>
-                <span>{{offer.jobType}} <br/>
-                {{offer.city}}</span>
+        <md-whiteframe style="background-color: white; margin-top:18px" class="md-whiteframe-10dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" data-layout="column" data-layout-align="center center">
+
+            <h2 style="margin-bottom: 10px">filtrowanie wyników</h2>
+            <div data-layout="row">
+            <md-input-container style="margin-right: 10px;">
+                <label>branża</label>
+                <md-select ng-model="selectedFilters.field">
+                    <md-option ng-repeat="field in filters.field" value="{{field}}">{{field}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container style="margin-right: 10px;">
+                <label>rodzaj umowy</label>
+                <md-select ng-model="selectedFilters.contractType">
+                    <md-option ng-repeat="contractType in filters.contractType" value="{{contractType}}">{{contractType}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container style="margin-right: 10px;">
+                <label>charakter pracy</label>
+                <md-select ng-model="selectedFilters.jobType">
+                    <md-option ng-repeat="jobType in filters.jobType" value="{{jobType}}">{{jobType}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container style="margin-right: 10px;">
+                <label>umiejętności</label>
+                <md-select ng-model="selectedFilters.skills">
+                    <md-option ng-repeat="skills in filters.skills" value="{{skills}}">{{skills}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container style="margin-right: 10px;">
+                <label>wymiar czasu pracy</label>
+                <md-select ng-model="selectedFilters.timeType">
+                    <md-option ng-repeat="timeType in filters.timeType" value="{{timeType}}">{{timeType}}</md-option>
+                </md-select>
+            </md-input-container>
             </div>
-            <div class="offer2 offer" ng-show="$index % 2 == 0">
-                <h2>{{offer.description}}</h2>
-                <span>{{offer.jobType}} <br/>
+        </md-whiteframe>
+        <div class="offers-search">
+            <div class="offer-search" ng-repeat="offer in offers track by $index">
+                <div class="offer1 offer" ng-show="$index % 2 != 0">
+                    <h2>{{offer.description}}</h2>
+                    <span>{{offer.jobType}} <br/>
                 {{offer.city}}</span>
+                </div>
+                <div class="offer2 offer" ng-show="$index % 2 == 0">
+                    <h2>{{offer.description}}</h2>
+                    <span>{{offer.jobType}} <br/>
+                {{offer.city}}</span>
+                </div>
             </div>
         </div>
+
+
+
     </div>
+
 </div>
