@@ -1,0 +1,48 @@
+.container-home{
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+.btn-home{
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+    /*background-color: #22BFC6;*/
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.btn-home h1{
+    font-family: Verdana, sans-serif;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 350%;
+}
+
+.btn-home:hover{
+    opacity: 0.45;
+}
+
+.btn-home:hover h1{
+    font-size: 500%;
+}
+
+.workers-home{
+    background-image: url("../img/szukampracy.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.employers-home{
+    background-image: url("../img/zlecamprace.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

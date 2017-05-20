@@ -1,13 +1,17 @@
+
 .content{
     position: relative;
     /*top: 150px;*/
     width: 100%;
     padding: 0;
     margin: 0;
+    height: 85%;
 }
 .nav{
-    height: 150px;
+    height: 15%;
+    background-color: #fff;
 }
 md-toolbar{
     height: 100%;
+    background-color: #fff;
 }
