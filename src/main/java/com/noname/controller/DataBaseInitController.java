@@ -258,7 +258,6 @@ public class DataBaseInitController {
         jobOffer11.setTitle("Oferta pracy, zapraszamy!");
 
         jobOfferRepository.save(jobOffer11);
-
     }
     private void initCompany() {
         Employer employer = new Employer();
