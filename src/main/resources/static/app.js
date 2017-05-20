@@ -1,28 +1,31 @@
-var code4life = angular.module('code4life', ['ngMaterial','ngRouter']);
+var code4life = angular.module('code4life', [
+    'ngMaterial', 
+    'ngRoute',
+    'code4life.home']);
 
-code4life.controller('testCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window) {
-
-    $scope.test = "hello world";
-
-    $scope.lookingForJob = function () {
-        console.log("powinienem przejść na nową stronę");
-        $http({
-            method: 'POST',
-            url: '/api/test',
-
-        });
-    };
+code4life.controller('testCtrl', ['$scope', function ($scope) {
+    var vm = this;
+    vm.test = "hello world";
 }]);
 
+code4life.config(function ($routeProvider) {
 
-code4life.controller('searchCtrl', function($scope) {
-   $scope.test2 = "dzialam numer dwa!";
-});
+  /**
+   * $routeProvider
+   */
 
-code4life.config(function($routeProvider) {
-    $routeProvider
-        .when("/job-search", {
-            templateUrl : "job-search.html"
-        })
+  $routeProvider
+  .when('/', {
+    templateUrl: 'pages/home.html',
+    controller: 'homeCtrl'
+  })
+  .when('/choose-city', {
+    templateUrl: 'pages/first-filter.html',
+    controller: 'testCtrl'
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+
 
 });
